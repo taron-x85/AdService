@@ -17,7 +17,7 @@ router.get('/ad', async (req, res) => {
     await nad.save().then(() => {
         res.send('new ad saved!');
     }).catch((ex) => {
-        console.log(ex);
+        res.send(ex.message);
     });
 });
 
