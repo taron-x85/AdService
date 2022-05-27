@@ -1,0 +1,242 @@
+{
+    "transactionSettings": {
+        "transactionTable": [
+            {
+                "defaultHide": true,
+                "defaultDragIndex": 1,
+                "mainIndex": 0,
+                "hideFlag": false,
+                "name": "Bill",
+                "subItems": [
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 0,
+                        "mainIndex": 0,
+                        "name": "Bill/Invoice N"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 1,
+                        "mainIndex": 1,
+                        "name": "Generation Date/Time"
+                    }
+                ]
+            },
+            {
+                "defaultHide": true,
+                "defaultDragIndex": 0,
+                "mainIndex": 1,
+                "hideFlag": false,
+                "name": "General",
+                "subItems": [
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 0,
+                        "mainIndex": 0,
+                        "name": "Transaction ID"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 1,
+                        "mainIndex": 1,
+                        "name": "Date/Time"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 2,
+                        "mainIndex": 2,
+                        "name": "Status"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 3,
+                        "mainIndex": 3,
+                        "name": "Transaction Type"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 4,
+                        "mainIndex": 4,
+                        "name": "Source Type"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 5,
+                        "mainIndex": 5,
+                        "name": "Merchant Transaction ID"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 6,
+                        "mainIndex": 6,
+                        "name": "State Message"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 7,
+                        "mainIndex": 7,
+                        "name": "Amount"
+                    }
+                ]
+            },
+            {
+                "defaultHide": true,
+                "defaultDragIndex": 2,
+                "mainIndex": 2,
+                "hideFlag": false,
+                "name": "Initiator",
+                "subItems": [
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 0,
+                        "mainIndex": 0,
+                        "name": "Type"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 1,
+                        "mainIndex": 1,
+                        "name": "Name"
+                    }
+                ]
+            },
+            {
+                "defaultHide": true,
+                "defaultDragIndex": 4,
+                "mainIndex": 3,
+                "hideFlag": false,
+                "name": "My Incomes/Expenses",
+                "subItems": [
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 0,
+                        "mainIndex": 0,
+                        "name": "My Amount"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 1,
+                        "mainIndex": 1,
+                        "name": "Type"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 2,
+                        "mainIndex": 2,
+                        "name": "Payment Method"
+                    }
+                ]
+            },
+            {
+                "defaultHide": true,
+                "defaultDragIndex": 3,
+                "mainIndex": 4,
+                "hideFlag": false,
+                "name": "Participant",
+                "subItems": [
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 0,
+                        "mainIndex": 0,
+                        "name": "Type"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 1,
+                        "mainIndex": 1,
+                        "name": "Name"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 2,
+                        "mainIndex": 2,
+                        "name": "Logins"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 3,
+                        "mainIndex": 3,
+                        "name": "Credit Before"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 4,
+                        "mainIndex": 4,
+                        "name": "Credit After"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 5,
+                        "mainIndex": 5,
+                        "name": "Credit End Date"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 7,
+                        "mainIndex": 6,
+                        "name": "Balance After"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 6,
+                        "mainIndex": 7,
+                        "name": "Balance Before"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 8,
+                        "mainIndex": 8,
+                        "name": "Debt"
+                    }
+                ]
+            },
+            {
+                "defaultHide": true,
+                "defaultDragIndex": 5,
+                "mainIndex": 5,
+                "hideFlag": false,
+                "name": "My Balance/Credit State",
+                "subItems": [
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 0,
+                        "mainIndex": 0,
+                        "name": "My Balance Before"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 2,
+                        "mainIndex": 1,
+                        "name": "My Debt "
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 1,
+                        "mainIndex": 2,
+                        "name": "My Balance After"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 3,
+                        "mainIndex": 3,
+                        "name": "My Credit Before"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 4,
+                        "mainIndex": 4,
+                        "name": "My Credit After"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 5,
+                        "mainIndex": 5,
+                        "name": "My Credit End Date/Time"
+                    }
+                ]
+            }
+        ],
+        "isDefault": false,
+        "limit": 20
+    }
+}
