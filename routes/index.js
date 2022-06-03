@@ -10,123 +10,278 @@ router.use((req, res, next) => {
 });
 
 router.get('/ad', (req, res) => {
-    // let _data = {};
-    // fs.readFile('./data.json', (err, data) => {
-    //     if (!err) {
-    //         _data = JSON.parse(data);
-    //         res.status(200).json(_data);
-    //     } else {
-    //         res.status(500).send(err.message);
-    //     }
-    // });
-
-    // You can define styles as json object
-    const styles = {
-        headerDark: {
-            fill: {
-                fgColor: {
-                    rgb: 'FF000000'
-                }
-            },
-            font: {
-                color: {
-                    rgb: 'FFFFFFFF'
+    let _data = {};
+    fs.readFile('./data.json', (err, data) => {
+        if (!err) {
+            _data = JSON.parse(data);
+            //res.status(200).json(_data);
+            // You can define styles as json object
+            const styles = {
+                firstHead: {
+                    border: {
+                        right: { style: 'medium', color: { rgb: '3B0472' } }
+                    },
+                    alignment: {
+                        horizontal: 'center',
+                        vertical: 'center'
+                    },
+                    font: {
+                        bold: true
+                    }
                 },
-                sz: 14,
-                bold: true,
-                underline: true
-            }
-        },
-        cellPink: {
-            fill: {
-                fgColor: {
-                    rgb: 'FFFFCCFF'
+                secondHead: {
+                    width: 100,
+                    alignment: {
+                        horizontal: 'center',
+                        vertical: 'center'
+                    },
+                    font: {
+                        italic: true
+                    }
+                },
+                cellGreen: {
+                    fill: {
+                        fgColor: {
+                            rgb: 'FFEDE9'
+                        }
+                    },
+                    width: 100,
+                    alignment: {
+                        horizontal: 'center',
+                        vertical: 'center'
+                    },
+                    font: {
+                        italic: true
+                    }
+                }
+            };
+
+            let merges = [];
+            let heading = [];
+            let firstHeading = [];
+            let secondHeading = [];
+            let prevItemsCount = 1;
+            let specification = {};
+            let dataset = [];
+            let rowValues = {};
+            //
+            for (const iterator of _data.transactionSettings.transactionTable) {
+                const subItemCount = iterator.subItems.length;
+                merges.push({ start: { row: 1, column: prevItemsCount }, end: { row: 1, column: (subItemCount + prevItemsCount - 1) } });
+                prevItemsCount += subItemCount;
+                firstHeading.push({
+                    value: iterator.name,
+                    style: {
+                        alignment: {
+                            horizontal: 'center',
+                            vertical: 'center'
+                        },
+                        font: {
+                            bold: true
+                        }
+                    },
+
+                    border: {
+                        right: {
+                            style: 'medium', color: { rgb: '3B0472' }
+                        }
+                    }
+                });
+                for (let p = 0; p < subItemCount - 1; p++) {
+                    firstHeading.push('');
+                }
+                for (const sub of iterator.subItems) {
+                    secondHeading.push({ value: sub.name, style: styles.secondHead });
+                    specification[sub.key] = {
+                        displayName: sub.name,
+                        headerStyle: styles.cellGreen,
+                        cellStyle: function (value, row) {
+                            console.log(row);
+                            return {
+                                fill: { fgColor: { rgb: 'F0EDE1 ' } }, alignment: {
+                                    horizontal: 'center',
+                                    vertical: 'center'
+                                },
+                                border: {
+                                    right: {
+                                        style: 'thin', color: { rgb: '031972' }
+                                    }
+                                }
+                            };
+                        },
+                        width: 150
+                    };
                 }
             }
-        },
-        cellGreen: {
-            fill: {
-                fgColor: {
-                    rgb: 'FF00FF00'
+            heading.push(firstHeading);
+            //heading.push(secondHeading);
+            let _result = {};
+            fs.readFile('./result.json', (err, data) => {
+                if (!err) {
+                    _result = JSON.parse(data);
+                    console.log(_result.results);
+                    for (const r of _result.results) {
+                        for (const key in specification) {
+                            if (Object.hasOwnProperty.call(specification, key)) {
+                                let cellValue = null;
+                                switch (key) {
+                                    // General +
+                                    case 'number':
+                                        cellValue = r.number;
+                                        break;
+                                    case 'updatedAt':
+                                        cellValue = r.updatedAt;
+                                        break;
+                                    case 'state':
+                                        switch (r.state) {
+                                            case 0: {
+                                                cellValue = "Reject";
+                                            }
+                                            case 1: {
+                                                cellValue = "Approve";
+                                            }
+                                            case 2: {
+                                                cellValue = "Pending";
+                                            }
+                                            case 3: {
+                                                cellValue = "Refunded";
+                                            }
+                                            case 4: {
+                                                cellValue = "Refund Failed";
+                                            }
+                                        }
+                                        break;
+                                    case 'transaction_type':
+                                        cellValue = r.transaction_type;
+                                        break;
+                                    case 'source_type':
+                                        cellValue = r.source_type;
+                                        break;
+                                    case 'transactionId':
+                                        cellValue = r.transactionId ? r.transactionId : '-';
+                                        break;
+                                    case 'stateMessage':
+                                        cellValue = r.stateMessage ? r.stateMessage : '-';
+                                        break;
+                                    case 'amount':
+                                        cellValue = r.amount;
+                                        break;
+                                    // General -
+                                    // Bill +
+                                    case 'invoicesNumber':
+                                        cellValue = (r.invoices && r.invoices.length) ? r.invoices[0].number : '-';
+                                        break;
+                                    case 'invoicesStartDate':
+                                        cellValue = (r.invoices && r.invoices.length) ? r.invoices[0].startDate : '-';
+                                        break;
+                                    // Bill -
+                                    // My Incomes/Expenses +
+                                    case 'myAmount':
+                                        cellValue = r.amount;
+                                        break;
+                                    case 'transactionType':
+                                        cellValue = r.transaction_type;
+                                        break;
+                                    case 'sourcePay':
+                                        cellValue = r.invoices.length > 0 ? r.invoices[0]?.sourcePay : '-';
+                                        break;
+                                    // My Incomes/Expenses -
+                                    // Initiator +
+                                    case 'initiatorType':
+                                        cellValue = r.from_provider ? 'Provider' : r.from_client ? 'Client' : '-';
+                                        break;
+                                    case 'initiatorName':
+                                        cellValue = r.initiatorName ? r.initiatorName : '-';
+                                        break;
+                                    // Initiator -
+                                    // Participant +
+                                    case 'participantType':
+                                        cellValue = r.to_provider ? 'Provider' : r.to_client ? 'Client' : '-'
+                                        break;
+                                    case 'participantName':
+                                        cellValue = r.participantName ? r.participantName : '-'
+                                        break;
+                                    case 'locationLogin':
+                                        if (r.invoices && r.invoices.length) {
+                                            let logins = [];
+                                            r.invoices[0].payloadCalculated.locations.map(item => {
+                                                logins.push(item.locationLogin)
+                                            })
+                                            cellValue = logins.toString().split(',');
+                                        } else {
+                                            cellValue = '-';
+                                        }
+                                        break;
+                                    case 'creditBefore':
+                                        cellValue = r.invoices.length && r.invoices[0].provider[0].creditBefore ? r.provider[0].creditBefore : '-';
+                                        break;
+                                    case 'creditAfter':
+                                        cellValue = r.invoices.length && r.invoices[0].provider[0].creditAfter ? r.invoices[0].provider[0].creditAfter : '-';
+                                        break;
+                                    case 'creditEndDate':
+                                        cellValue = r.invoices && r.invoices.length && r.invoices[0].provider[0].creditEndDate !== undefined ? r.invoices[0].provider[0].creditEndDate : '-';
+                                        break;
+                                    case 'balanceBefore':
+                                        cellValue = r.invoices.length && r.invoices[0].provider[0].balanceBefore ? r.invoices[0].provider[0].balanceBefore : '-';
+                                        break;
+                                    case 'balance':
+                                        cellValue = r.invoices.length && r.invoices[0].provider[0].balance ? r.invoices[0].provider[0].balance : '-';
+                                        break;
+                                    case 'debt':
+                                        cellValue = r.invoices.length ? r.invoices[0].provider[0]?.debt : '-';
+                                        break;
+                                    // Participant -
+                                    // My Balance/Credit State +
+                                    case 'myBalanceBefore':
+                                        cellValue = r.provider.length && r.provider[0].myBalanceBefore ? r.provider[0].myBalanceBefore : '-';
+                                        break;
+                                    case 'providerBalance':
+                                        cellValue = r.provider.length ? r?.provider[0]?.balance.toFixed(2) : '-';
+                                        break;
+                                    case 'providerDebt':
+                                        cellValue = r.provider.length ? r?.provider[0]?.debt : '-';
+                                        break;
+                                    case 'myCreditBefore':
+                                        cellValue = r.provider.length && r.provider[0].myCreditBefore ? r.provider[0].myCreditBefore : '-';
+                                        break;
+                                    case 'myCreditAfter':
+                                        cellValue = r.provider.length && r.provider[0].myCreditAfter ? r.provider[0].myCreditAfter : '-';
+                                        break;
+                                    case 'myCreditEndDate':
+                                        cellValue = r.provider.length && r.provider[0].myCreditEndDate ? r?.provider[0]?.myCreditEndDate : '-';
+                                        break;
+                                    // My Balance/Credit State -
+                                    default:
+                                        cellValue = '-';
+                                        break;
+                                }
+                                rowValues[key] = cellValue;
+                            }
+                        }
+                        dataset.push(rowValues);
+                    }
+
+                    const report = excel.buildExport(
+                        [ // <- Notice that this is an array. Pass multiple sheets to create multi sheet report
+                            {
+                                name: 'Report', // <- Specify sheet name (optional)
+                                heading: heading, // <- Raw heading array (optional)
+                                merges: merges, // <- Merge cell ranges
+                                specification: specification, // <- Report specification
+                                data: dataset // <-- Report data
+                            }
+                        ]
+                    );
+
+                    // You can then return this straight
+                    res.attachment('report.xlsx'); // This is sails.js specific (in general you need to set headers)
+                    return res.send(report);
                 }
-            }
+            });
+        } else {
+            res.status(500).send(err.message);
         }
-    };
-
-    //Array of objects representing heading rows (very top)
-    const heading = [
-        [{ value: 'a1', style: styles.headerDark }, { value: 'b1', style: styles.cellGreen }, { value: 'c1', style: styles.cellPink }],
-        ['a2', 'b2', 'c2'] // <-- It can be only values
-    ];
-
-    //Here you specify the export structure
-    const specification = {
-        customer_name: { // <- the key should match the actual data key
-            displayName: 'Customer', // <- Here you specify the column header
-            headerStyle: styles.headerDark, // <- Header style
-            cellStyle: function (value, row) { // <- style renderer function
-                // if the status is 1 then color in green else color in red
-                // Notice how we use another cell value to style the current one
-                return (row.status_id == 1) ? styles.cellGreen : { fill: { fgColor: { rgb: 'FFFF0000' } } }; // <- Inline cell style is possible 
-            },
-            width: 120 // <- width in pixels
-        },
-        status_id: {
-            displayName: 'Status',
-            headerStyle: styles.headerDark,
-            cellFormat: function (value, row) { // <- Renderer function, you can access also any row.property
-                return (value == 1) ? 'Active' : 'Inactive';
-            },
-            width: '10' // <- width in chars (when the number is passed as string)
-        },
-        note: {
-            displayName: 'Description',
-            headerStyle: styles.headerDark,
-            cellStyle: styles.cellPink, // <- Cell style
-            width: 220 // <- width in pixels
-        }
-    };
-
-    // The data set should have the following shape (Array of Objects)
-    // The order of the keys is irrelevant, it is also irrelevant if the
-    // dataset contains more fields as the report is build based on the
-    // specification provided above. But you should have all the fields
-    // that are listed in the report specification
-    const dataset = [
-        { customer_name: 'IBM', status_id: 1, note: 'some note', misc: 'not shown' },
-        { customer_name: 'HP', status_id: 0, note: 'some note' },
-        { customer_name: 'MS', status_id: 0, note: 'some note', misc: 'not shown' }
-    ];
-
-    // Define an array of merges. 1-1 = A:1
-    // The merges are independent of the data.
-    // A merge will overwrite all data _not_ in the top-left cell.
-    const merges = [
-        { start: { row: 1, column: 1 }, end: { row: 1, column: 10 } },
-        { start: { row: 1, column: 11 }, end: { row: 1, column: 13 } }, //++
-        { start: { row: 2, column: 1 }, end: { row: 2, column: 5 } },
-        { start: { row: 2, column: 6 }, end: { row: 2, column: 10 } }
-    ]
-
-    // Create the excel report.
-    // This function will return Buffer
-    const report = excel.buildExport(
-        [ // <- Notice that this is an array. Pass multiple sheets to create multi sheet report
-            {
-                name: 'Report', // <- Specify sheet name (optional)
-                heading: heading, // <- Raw heading array (optional)
-                merges: merges, // <- Merge cell ranges
-                specification: specification, // <- Report specification
-                data: dataset // <-- Report data
-            }
-        ]
-    );
-
-    // You can then return this straight
-    res.attachment('report.xlsx'); // This is sails.js specific (in general you need to set headers)
-    return res.send(report);
-
-
+    });
 
     //res.status(200).end();
     // const cdate = new Date();

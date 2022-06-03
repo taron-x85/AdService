@@ -3,27 +3,6 @@
         "transactionTable": [
             {
                 "defaultHide": true,
-                "defaultDragIndex": 1,
-                "mainIndex": 0,
-                "hideFlag": false,
-                "name": "Bill",
-                "subItems": [
-                    {
-                        "defaultHide": true,
-                        "defaultDragIndex": 0,
-                        "mainIndex": 0,
-                        "name": "Bill/Invoice N"
-                    },
-                    {
-                        "defaultHide": true,
-                        "defaultDragIndex": 1,
-                        "mainIndex": 1,
-                        "name": "Generation Date/Time"
-                    }
-                ]
-            },
-            {
-                "defaultHide": true,
                 "defaultDragIndex": 0,
                 "mainIndex": 1,
                 "hideFlag": false,
@@ -33,49 +12,80 @@
                         "defaultHide": true,
                         "defaultDragIndex": 0,
                         "mainIndex": 0,
+                        "key": "number",
                         "name": "Transaction ID"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 1,
                         "mainIndex": 1,
+                        "key": "updatedAt",
                         "name": "Date/Time"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 2,
                         "mainIndex": 2,
+                        "key": "state",
                         "name": "Status"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 3,
                         "mainIndex": 3,
+                        "key": "transaction_type",
                         "name": "Transaction Type"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 4,
                         "mainIndex": 4,
+                        "key": "source_type",
                         "name": "Source Type"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 5,
                         "mainIndex": 5,
+                        "key": "transactionId",
                         "name": "Merchant Transaction ID"
-                    },
-                    {
-                        "defaultHide": true,
-                        "defaultDragIndex": 6,
-                        "mainIndex": 6,
-                        "name": "State Message"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 7,
                         "mainIndex": 7,
+                        "key": "amount",
                         "name": "Amount"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 6,
+                        "mainIndex": 6,
+                        "key": "stateMessage",
+                        "name": "State Message"
+                    }
+                ]
+            },
+            {
+                "defaultHide": true,
+                "defaultDragIndex": 1,
+                "mainIndex": 0,
+                "hideFlag": false,
+                "name": "Bill",
+                "subItems": [
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 1,
+                        "mainIndex": 1,
+                        "key": "invoicesStartDate",
+                        "name": "Generation Date/Time"
+                    },
+                    {
+                        "defaultHide": true,
+                        "defaultDragIndex": 0,
+                        "mainIndex": 0,
+                        "key": "invoicesNumber",
+                        "name": "Bill/Invoice N"
                     }
                 ]
             },
@@ -90,12 +100,14 @@
                         "defaultHide": true,
                         "defaultDragIndex": 0,
                         "mainIndex": 0,
+                        "key": "initiatorType",
                         "name": "Type"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 1,
                         "mainIndex": 1,
+                        "key": "initiatorName",
                         "name": "Name"
                     }
                 ]
@@ -111,18 +123,21 @@
                         "defaultHide": true,
                         "defaultDragIndex": 0,
                         "mainIndex": 0,
+                        "key": "myAmount",
                         "name": "My Amount"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 1,
                         "mainIndex": 1,
+                        "key": "transactionType",
                         "name": "Type"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 2,
                         "mainIndex": 2,
+                        "key": "sourcePay",
                         "name": "Payment Method"
                     }
                 ]
@@ -138,54 +153,63 @@
                         "defaultHide": true,
                         "defaultDragIndex": 0,
                         "mainIndex": 0,
+                        "key": "participantType",
                         "name": "Type"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 1,
                         "mainIndex": 1,
+                        "key": "participantName",
                         "name": "Name"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 2,
                         "mainIndex": 2,
+                        "key": "locationLogin",
                         "name": "Logins"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 3,
                         "mainIndex": 3,
+                        "key": "creditBefore",
                         "name": "Credit Before"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 4,
                         "mainIndex": 4,
+                        "key": "creditAfter",
                         "name": "Credit After"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 5,
                         "mainIndex": 5,
+                        "key": "creditEndDate",
                         "name": "Credit End Date"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 7,
                         "mainIndex": 6,
+                        "key": "balance",
                         "name": "Balance After"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 6,
                         "mainIndex": 7,
+                        "key": "balanceBefore",
                         "name": "Balance Before"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 8,
                         "mainIndex": 8,
+                        "key": "debt",
                         "name": "Debt"
                     }
                 ]
@@ -201,36 +225,42 @@
                         "defaultHide": true,
                         "defaultDragIndex": 0,
                         "mainIndex": 0,
+                        "key": "myBalanceBefore",
                         "name": "My Balance Before"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 2,
                         "mainIndex": 1,
+                        "key": "providerDebt",
                         "name": "My Debt "
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 1,
                         "mainIndex": 2,
+                        "key": "providerBalance",
                         "name": "My Balance After"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 3,
                         "mainIndex": 3,
+                        "key": "myCreditBefore",
                         "name": "My Credit Before"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 4,
                         "mainIndex": 4,
+                        "key": "myCreditAfter",
                         "name": "My Credit After"
                     },
                     {
                         "defaultHide": true,
                         "defaultDragIndex": 5,
                         "mainIndex": 5,
+                        "key": "myCreditEndDate",
                         "name": "My Credit End Date/Time"
                     }
                 ]

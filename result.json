@@ -1,0 +1,194 @@
+{
+    "results": [
+        {
+            "provider": [
+                {
+                    "_id": "6268e97c9f2fc3cf3e775105",
+                    "balance": 500,
+                    "debt": 0,
+                    "credits": []
+                }
+            ],
+            "user": "6268e97c9f2fc3cf3e775100",
+            "payload": {
+                "type": "TRANSFER",
+                "to_type": 1,
+                "to_client": null,
+                "to_provider": "6268e97c9f2fc3cf3e775105",
+                "transaction_type": "TO_B"
+            },
+            "sourcePay": {
+                "cardNumber": "4242424242424242",
+                "cardholderName": "Poxos Petrosyan",
+                "cvc": "123",
+                "month": "04",
+                "save": true,
+                "year": "24",
+                "brand": "",
+                "anExistingAddress": false,
+                "billingAddress": "[{\"phone\":\"6268e97c9f2fc3cf3e77510d\",\"address\":\"yerevani 25\",\"country\":\"AL\",\"city\":\"Yerevan\",\"suite\":\"\",\"zip\":\"0256\",\"state\":\"\"}]"
+            },
+            "payloadExecuted": true,
+            "state": 1,
+            "number": "TR-645273",
+            "amount": 250,
+            "transaction_type": "C_TO_A",
+            "source_type": "PAY_BALANCE",
+            "from_type": 1,
+            "from_client": null,
+            "from_provider": "6268e97c9f2fc3cf3e775105",
+            "to_type": 1,
+            "to_client": null,
+            "to_provider": "6267e873606674a10e69e8d1",
+            "createdAt": "5/30/2022 08:05",
+            "updatedAt": "5/30/2022 08:05",
+            "__v": 0,
+            "transactionId": "pi_3L53q5DK2DEgxR880phyWoeW",
+            "invoices": [],
+            "id": "62947e54bea4203537bd3010"
+        },
+        {
+            "provider": [
+                {
+                    "_id": "6268e97c9f2fc3cf3e775105",
+                    "balance": 500,
+                    "debt": 0,
+                    "credits": []
+                }
+            ],
+            "user": "6268e97c9f2fc3cf3e775100",
+            "payload": {
+                "type": "TRANSFER",
+                "to_type": 1,
+                "to_client": null,
+                "to_provider": "6268e97c9f2fc3cf3e775105",
+                "transaction_type": "TO_B"
+            },
+            "sourcePay": {
+                "cardNumber": "4242424242424242",
+                "cardholderName": "Poxos Petrosyan",
+                "cvc": "123",
+                "month": "04",
+                "save": true,
+                "year": "24",
+                "brand": "",
+                "anExistingAddress": false,
+                "billingAddress": "[{\"phone\":\"6268e97c9f2fc3cf3e77510d\",\"address\":\"yerevani 25\",\"country\":\"AL\",\"city\":\"Yerevan\",\"suite\":\"\",\"zip\":\"0256\",\"state\":\"\"}]"
+            },
+            "payloadExecuted": true,
+            "state": 1,
+            "number": "TR-793143",
+            "amount": 250,
+            "transaction_type": "C_TO_A",
+            "source_type": "PAY_BALANCE",
+            "from_type": 1,
+            "from_client": null,
+            "from_provider": "6268e97c9f2fc3cf3e775105",
+            "to_type": 1,
+            "to_client": null,
+            "to_provider": "6267e873606674a10e69e8d1",
+            "createdAt": "5/30/2022 08:05",
+            "updatedAt": "5/30/2022 08:05",
+            "__v": 0,
+            "transactionId": "pi_3L53q2DK2DEgxR882AgOlDkP",
+            "invoices": [],
+            "id": "62947e52bea4203537bd2fe2"
+        },
+        {
+            "provider": [
+                {
+                    "_id": "6268e97c9f2fc3cf3e775105",
+                    "balance": 500,
+                    "debt": 0,
+                    "credits": []
+                }
+            ],
+            "user": "6268e97c9f2fc3cf3e775100",
+            "payload": {
+                "type": "TRANSFER",
+                "to_type": 1,
+                "to_client": null,
+                "to_provider": "6268e97c9f2fc3cf3e775105",
+                "transaction_type": "TO_B"
+            },
+            "sourcePay": {
+                "cardNumber": "4242424242424242",
+                "cardholderName": "Poxos Petrosyan",
+                "cvc": "123",
+                "month": "04/2024",
+                "save": true,
+                "brand": "",
+                "anExistingAddress": false,
+                "billingAddress": "[{\"phone\":\"6268e97c9f2fc3cf3e77510d\",\"address\":\"yerevani 25\",\"country\":\"AL\",\"city\":\"Yerevan\",\"suite\":\"\",\"zip\":\"0256\",\"state\":\"\"}]"
+            },
+            "payloadExecuted": false,
+            "state": 0,
+            "number": "TR-292441",
+            "amount": 250,
+            "transaction_type": "C_TO_A",
+            "source_type": "PAY_BALANCE",
+            "from_type": 1,
+            "from_client": null,
+            "from_provider": "6268e97c9f2fc3cf3e775105",
+            "to_type": 1,
+            "to_client": null,
+            "to_provider": "6267e873606674a10e69e8d1",
+            "createdAt": "5/30/2022 08:05",
+            "updatedAt": "5/30/2022 08:05",
+            "__v": 0,
+            "stateMessage": "Invalid integer: 04/2024",
+            "invoices": [],
+            "id": "62947e3ebea4203537bd2fbf"
+        },
+        {
+            "provider": [
+                {
+                    "_id": "6268e97c9f2fc3cf3e775105",
+                    "balance": 500,
+                    "debt": 0,
+                    "credits": []
+                }
+            ],
+            "user": "6268e97c9f2fc3cf3e775100",
+            "payload": {
+                "type": "TRANSFER",
+                "to_type": 1,
+                "to_client": null,
+                "to_provider": "6268e97c9f2fc3cf3e775105",
+                "transaction_type": "TO_B"
+            },
+            "sourcePay": {
+                "cardNumber": "4242424242424242",
+                "cardholderName": "Poxos Petrosyan",
+                "cvc": "123",
+                "month": "04/2024",
+                "save": true,
+                "brand": "",
+                "anExistingAddress": false,
+                "billingAddress": "[{\"phone\":\"6268e97c9f2fc3cf3e77510d\",\"address\":\"yerevani 25\",\"country\":\"AL\",\"city\":\"Yerevan\",\"suite\":\"\",\"zip\":\"0256\",\"state\":\"\"}]"
+            },
+            "payloadExecuted": false,
+            "state": 0,
+            "number": "TR-488845",
+            "amount": 250,
+            "transaction_type": "C_TO_A",
+            "source_type": "PAY_BALANCE",
+            "from_type": 1,
+            "from_client": null,
+            "from_provider": "6268e97c9f2fc3cf3e775105",
+            "to_type": 1,
+            "to_client": null,
+            "to_provider": "6267e873606674a10e69e8d1",
+            "createdAt": "5/30/2022 08:05",
+            "updatedAt": "5/30/2022 08:05",
+            "__v": 0,
+            "stateMessage": "Invalid integer: 04/2024",
+            "invoices": [],
+            "id": "62947e2bbea4203537bd2fac"
+        }
+    ],
+    "page": 1,
+    "limit": 20,
+    "totalPages": 1,
+    "totalResults": 4
+}
